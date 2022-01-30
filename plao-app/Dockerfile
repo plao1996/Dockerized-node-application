@@ -1,6 +1,8 @@
-FROM node:16.13.2
+FROM node:alpine
 WORKDIR /app
-ADD . /app
-RUN npm install 
-EXPOSE 3000
-CMD npm start
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm i
+COPY . ./
+CMD ["npm","start"]

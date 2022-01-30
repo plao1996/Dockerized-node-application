@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    stages{
+        stage('Compile'){
+            steps{
+                echo 'Compile'
+                dir('plao-app/'){
+                    bat 'docker-compose up -d --build'
+                    bat 'docker-compose up'
+                }
+            }
+        }
+    }
+}
