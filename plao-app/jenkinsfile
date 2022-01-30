@@ -5,8 +5,8 @@ pipeline {
             steps{
                 echo 'Compile'
                 dir('plao-app/'){
-                    bat 'docker-compose up -d --build'
-                    bat 'docker-compose up'
+                bat 'docker-compose up -d --build'
+                bat 'docker-compose up'
                 }
             }
         }
